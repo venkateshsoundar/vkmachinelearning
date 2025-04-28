@@ -31,9 +31,18 @@ with st.sidebar:
     body_mass_g=st.slider('body_mass_g',float(df['body_mass_g'].min()),float(df['body_mass_g'].max()),float(df['body_mass_g'].mean()))
     sex=st.selectbox("Sex", df["sex"].unique())
   
-    
+    data={
+      'island':island,
+      'bill_length_mm':bill_length_mm,
+      'bill_depth_mm':bill_depth_mm,
+      'flipper_length_mm':flipper_length_mm,
+      'body_mass_g':body_mass_g,
+      'sex':sex
+    }
 
-    
+    input_df=pd.dataframe(data,index=[0])
+
+input_df    
     
   
   
