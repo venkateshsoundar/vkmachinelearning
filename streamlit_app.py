@@ -17,5 +17,5 @@ with st.expander('Data'):
   y=df.species
   y
 
-with st.expander("**Visualizations**")
+with st.expander("**Visualizations**"):
   st.scatter_chart(data=df,x="bill_length_mm",y="bill_length_mm",color="species")
