@@ -40,7 +40,7 @@ with st.sidebar:
       'sex':sex
     }
 
-    input_df=pd.dataframe(data,index=[0])
+    input_df=pd.DataFrame(data,index=[0])
 
 input_df    
     
