@@ -42,7 +42,8 @@ with st.sidebar:
 
     input_df=pd.DataFrame(data,index=[0])
 
-input_df    
+with st.expander('Input_Features'):
+  input_df    
     
   
   
