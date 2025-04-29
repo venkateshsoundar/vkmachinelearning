@@ -29,7 +29,7 @@ df = load_data(dataset_file)
 
 # Setup Langchain Chat Model (replace with your own API keys if needed)
 deepseek_api_key = st.secrets.get('DEEPSEEK_API_KEY', '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')
-model_name = st.secrets.get('MODEL_NAME', 'deepseek-chat')
+model_name = st.secrets.get('MODEL_NAME', 'deepseek/deepseek-r1-zero:free')
 openai_api_base = st.secrets.get('OPENAI_API_BASE', 'https://api.deepseek.com')
 
 llm = ChatOpenAI(
