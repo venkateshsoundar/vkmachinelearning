@@ -41,9 +41,14 @@ with st.sidebar:
     }
 
     input_df=pd.DataFrame(data,index=[0])
+    penguins_df=pd.concat([input_df,df],index=[0])
+  
 
 with st.expander('Input_Features'):
-  input_df    
+  st.write("**Input_Features**")
+  input_df
+  st.write("**Combined_Features**")
+  penguins_df 
     
   
   
