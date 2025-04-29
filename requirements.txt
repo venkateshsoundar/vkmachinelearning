@@ -5,4 +5,5 @@ scikit-learn
 langchain
 langchain_community
 langchain_experimental
+openai
 
