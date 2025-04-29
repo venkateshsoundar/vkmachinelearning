@@ -115,4 +115,6 @@ with st.expander('Predicted_Species'):
     hide_index=True,
       )
 
+st.success(predicition[0], icon="✅")
+
   
