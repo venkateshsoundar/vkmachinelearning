@@ -115,6 +115,8 @@ with st.expander('Predicted_Species'):
     hide_index=True,
       )
 
-st.success(predicition[0], icon="✅")
+penguin_species=np.array(['Adelie','Chinstrap','Gentoo'])
+penguin_species[predicition]
+st.success(penguin_species[predicition], icon="✅")
 
   
