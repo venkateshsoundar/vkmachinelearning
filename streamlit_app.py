@@ -8,7 +8,7 @@ from openai import OpenAI
 
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="sk-ad37fcceda2e40d7935e25da8284086c",
+  api_key="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",
 )
 
 response = client.chat.completions.create(
