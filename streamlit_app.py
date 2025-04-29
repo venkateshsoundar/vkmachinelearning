@@ -11,12 +11,12 @@ with st.expander('Data'):
   df
 
   st.write("**X**")
-  X=df.drop('species',axis=1)
-  X
+  X_raw=df.drop('species',axis=1)
+  X_raw
 
   st.write("**y**")
-  y=df.species
-  y
+  y_raw=df.species
+  y_raw
 
 with st.expander("**Visualizations**"):
   st.scatter_chart(data=df,x="bill_length_mm",y="body_mass_g",color="species")
@@ -41,7 +41,7 @@ with st.sidebar:
     }
 
     input_df=pd.DataFrame(data,index=[0])
-    penguins_df=pd.concat([input_df,df],axis=0)
+    penguins_df=pd.concat([input_df,X_raw],axis=0)
   
 
 with st.expander('Input_Features'):
@@ -56,5 +56,15 @@ with st.expander('Encoded_Features'):
   df_penguins = pd.get_dummies(penguins_df, columns=encode, prefix=encode)
   df_penguins[:1]
 
+#Encode y
+target_mapper={
+  'Adelie':0,'Chinstrap':1,'Gentoo':2  
+}
+def target_encode(val):
+  return target_mapper(val)
+
+y=y_raw.apply(target_encode)
+y
+y_raw
   
   
