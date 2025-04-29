@@ -18,7 +18,6 @@ client = OpenAI(
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Penguin QA Chatbot")
-st.title("🐧 Penguin Dataset Chatbot")
 
 if "history" not in st.session_state:
     st.session_state.history = []
