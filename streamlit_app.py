@@ -4,45 +4,6 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 
-from openai import OpenAI
-
-# Securely load your API key
-
-api_key = st.secrets["DEEPSEEK_API_KEY"]
-# Create OpenAI-compatible client for OpenRouter
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=api_key,
-)
-
-# Streamlit UI
-st.set_page_config(page_title="DeepSeek Chatbot")
-st.title('🤖 DeepSeek-R1 Chatbot via OpenRouter')
-
-if "history" not in st.session_state:
-    st.session_state.history = []
-
-for role, msg in st.session_state.history:
-    st.chat_message(role).write(msg)
-
-user_input = st.chat_input("Ask me anything...")
-
-if user_input:
-    st.session_state.history.append(("user", user_input))
-    st.chat_message("user").write(user_input)
-
-    try:
-        completion = client.chat.completions.create(
-            model="deepseek/deepseek-r1:free",
-            messages=[{"role": "user", "content": user_input}]            
-        )
-        response = completion.choices[0].message.content
-    except Exception as e:
-        response = f"❌ Error: {e}"
-
-    st.session_state.history.append(("assistant", response))
-    st.chat_message("assistant").write(response)
-
 st.title('🤖 This is the Machine Learning App')
 
 st.write('This is the app build a machine learning model')
