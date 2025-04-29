@@ -51,9 +51,10 @@ with st.expander('Input_Features'):
   penguins_df 
 
 # Encode
-encode=['island','sex']
-df_penguins = pd.get_dummies(penguins_df, columns=encode, prefix=encode)
-df_penguins[:1]
+with st.expander('Encoded_Features'):  
+  encode=['island','sex']
+  df_penguins = pd.get_dummies(penguins_df, columns=encode, prefix=encode)
+  df_penguins[:1]
 
   
   
