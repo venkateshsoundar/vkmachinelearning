@@ -67,6 +67,6 @@ y=y_raw.apply(target_encode)
 
 with st.expander('Data Preparation'):
   st.write('**Encoded X(input penguin)**')
-  input_row
+  inputrow
   st.write('**Encoded y**')
   y
