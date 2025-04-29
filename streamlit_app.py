@@ -41,7 +41,7 @@ with st.sidebar:
     }
 
     input_df=pd.DataFrame(data,index=[0])
-    penguins_df=pd.DataFrame([input_df,df],index=[0])
+    penguins_df=pd.concat([input_df,df],axis=0)
   
 
 with st.expander('Input_Features'):
