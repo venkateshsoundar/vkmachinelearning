@@ -73,13 +73,14 @@ with st.expander('Data Preparation'):
   st.write('**Encoded y**')
   y
 
+with st.expander('Prediction_Probablities'):
 #Model Training
-clf=RandomForestClassifier()
-clf.fit(X,y)
-
-#Apply prediction
-predicition=clf.predict(inputrow)
-prediction_proba=clf.predict_proba(inputrow)
-prediction_proba_df = pd.DataFrame(prediction_proba)
-prediction_proba_df.rename(columns={0: 'Adelie', 1: 'Chinstrap', 2: 'Gentoo'}, inplace=True)
-prediction_proba_df
+  clf=RandomForestClassifier()
+  clf.fit(X,y)
+  
+  #Apply prediction
+  predicition=clf.predict(inputrow)
+  prediction_proba=clf.predict_proba(inputrow)
+  prediction_proba_df = pd.DataFrame(prediction_proba)
+  prediction_proba_df.rename(columns={0: 'Adelie', 1: 'Chinstrap', 2: 'Gentoo'}, inplace=True)
+  prediction_proba_df
