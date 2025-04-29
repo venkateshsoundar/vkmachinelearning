@@ -54,7 +54,7 @@ with st.expander('Input_Features'):
 with st.expander('Encoded_Features'):  
   encode=['island','sex']
   df_penguins = pd.get_dummies(penguins_df, columns=encode, prefix=encode)
-  df_penguins[:1]
+  inputrow=df_penguins[:1]
 
 #Encode y
 target_mapper={
@@ -64,7 +64,6 @@ def target_encode(val):
   return target_mapper[val]
 
 y=y_raw.apply(target_encode)
-y
-y_raw
+
   
   
