@@ -7,8 +7,9 @@ from sklearn.ensemble import RandomForestClassifier
 from openai import OpenAI
 
 # Securely load your API key
-api_key = st.secrets.get("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")
 
+api_key = st.secrets["DEEPSEEK_API_KEY"]
+DEEPSEEK_API_KEY="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"
 # Create OpenAI-compatible client for OpenRouter
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
