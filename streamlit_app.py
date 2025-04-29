@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from openai import OpenAI
+import re
 
 
 st.title('🐧 Penguin Dataset Chatbot')
@@ -52,11 +53,14 @@ If it's not relevant to the data, just say: "Sorry, I can't answer that based on
             }
         )
         reply = completion.choices[0].message.content
+        reply_clean = re.sub(r"\\\[.*?\\\]", "", reply)  # Remove \[ \]
+        reply_clean = re.sub(r"\\boxed{\\text{(.*?)}}", r"\1", reply_clean)  # Extract boxed content
+        reply_clean = reply_clean.strip()
     except Exception as e:
         reply = f"❌ Error: {e}"
 
-    st.chat_message("assistant").write(reply)
-    st.session_state.history.append(("assistant", reply))
+    st.chat_message("assistant").write(reply_clean)
+    st.session_state.history.append(("assistant", reply_clean))
 
 
 
