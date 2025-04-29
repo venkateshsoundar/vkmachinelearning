@@ -87,7 +87,7 @@ with st.expander('Prediction_Probablities'):
 
 
 with st.expander('Predicted_Species'):
-  st.data_editor(
+  st.st.dataframe(
     prediction_proba_df,
     column_config={
         "Adelie": st.column_config.ProgressColumn(
