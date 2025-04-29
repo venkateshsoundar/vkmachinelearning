@@ -73,7 +73,7 @@ with st.expander('Data Preparation'):
   y
 
 #Model Training
-clf-RandomForestClassifier()
+clf=RandomForestClassifier()
 clf.fit(X,y)
 
 #Apply prediction
