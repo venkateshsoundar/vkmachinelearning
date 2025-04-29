@@ -7,7 +7,7 @@ import os
 
 # --- Streamlit page configuration ---
 st.set_page_config(
-    page_title="Custom Dataset QA Chatbot & Penguin Classifier",
+    page_title="Custom Dataset QA Chatbot & Penguin Classifiers",
     layout="wide"
 )
 st.title('🤖 Custom Dataset QA Chatbot & Penguin Classifier')
