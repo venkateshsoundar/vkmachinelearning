@@ -54,6 +54,7 @@ with st.expander('Input_Features'):
 with st.expander('Encoded_Features'):  
   encode=['island','sex']
   df_penguins = pd.get_dummies(penguins_df, columns=encode, prefix=encode)
+  X=df_penguins[1:]
   inputrow=df_penguins[:1]
 
 #Encode y
@@ -70,3 +71,13 @@ with st.expander('Data Preparation'):
   inputrow
   st.write('**Encoded y**')
   y
+
+#Model Training
+clf-RandomForestClassifier()
+clf.fit(X,y)
+
+#Apply prediction
+predicition=clf.predict(inputrow)
+prediction_proba=clf.predict_proba(inputrow)
+
+prediction_proba
