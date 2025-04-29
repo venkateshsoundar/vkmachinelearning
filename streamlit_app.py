@@ -6,26 +6,42 @@ from sklearn.ensemble import RandomForestClassifier
 
 from openai import OpenAI
 
+# Securely load your API key
+api_key = st.secrets.get("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")
+
+# Create OpenAI-compatible client for OpenRouter
 client = OpenAI(
-  base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+    base_url="https://openrouter.ai/api/v1",
+    api_key=api_key,
 )
 
-completion = client.chat.completions.create(
-  extra_headers={
-    "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
-    "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
-  },
-  extra_body={},
-  model="deepseek/deepseek-r1:free",
-  messages=[
-    {
-      "role": "user",
-      "content": "What is the meaning of life?"
-    }
-  ]
-)
-print(completion.choices[0].message.content)
+# Streamlit UI
+st.set_page_config(page_title="DeepSeek Chatbot")
+st.title('🤖 DeepSeek-R1 Chatbot via OpenRouter')
+
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+for role, msg in st.session_state.history:
+    st.chat_message(role).write(msg)
+
+user_input = st.chat_input("Ask me anything...")
+
+if user_input:
+    st.session_state.history.append(("user", user_input))
+    st.chat_message("user").write(user_input)
+
+    try:
+        completion = client.chat.completions.create(
+            model="deepseek/deepseek-r1:free",
+            messages=[{"role": "user", "content": user_input}]            
+        )
+        response = completion.choices[0].message.content
+    except Exception as e:
+        response = f"❌ Error: {e}"
+
+    st.session_state.history.append(("assistant", response))
+    st.chat_message("assistant").write(response)
 
 st.title('🤖 This is the Machine Learning App')
 
