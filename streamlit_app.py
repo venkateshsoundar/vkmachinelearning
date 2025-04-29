@@ -6,10 +6,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-ad37fcceda2e40d7935e25da8284086c", base_url="https://api.deepseek.com")
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key="sk-ad37fcceda2e40d7935e25da8284086c",
+)
 
 response = client.chat.completions.create(
-    model="deepseek-chat",
+    model="deepseek/deepseek-r1-zero:free",
     messages=[
         {"role": "system", "content": "You are a helpful assistant"},
         {"role": "user", "content": "Hello"},
