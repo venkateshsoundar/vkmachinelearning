@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from langchain.chat_models import ChatOpenAI
 from langchain_experimental.agents import create_pandas_dataframe_agent
+from sklearn.ensemble import RandomForestClassifier
 import os
 
 # --- Streamlit page configuration ---
