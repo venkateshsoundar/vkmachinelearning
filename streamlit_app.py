@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 
-st.title('🤖 This is the Machine Learning App')
+st.title('🐧 Penguin Dataset Chatbot')
 
 st.write('This is the app build a machine learning model')
 df=pd.read_csv("https://raw.githubusercontent.com/dataprofessor/data/refs/heads/master/penguins_cleaned.csv")
