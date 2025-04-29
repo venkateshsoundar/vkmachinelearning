@@ -11,14 +11,21 @@ client = OpenAI(
   api_key="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",
 )
 
-response = client.chat.completions.create(
-    model="deepseek/deepseek-r1-zero:free",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "Hello"},
-    ],
-    stream=False
+completion = client.chat.completions.create(
+  extra_headers={
+    "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+    "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+  },
+  extra_body={},
+  model="deepseek/deepseek-r1:free",
+  messages=[
+    {
+      "role": "user",
+      "content": "What is the meaning of life?"
+    }
+  ]
 )
+print(completion.choices[0].message.content)
 
 print(response.choices[0].message.content)
 
