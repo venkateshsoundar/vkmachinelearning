@@ -84,3 +84,20 @@ with st.expander('Prediction_Probablities'):
   prediction_proba_df = pd.DataFrame(prediction_proba)
   prediction_proba_df.rename(columns={0: 'Adelie', 1: 'Chinstrap', 2: 'Gentoo'}, inplace=True)
   prediction_proba_df
+
+
+with st.expander('Predicted_Species'):
+  st.data_editor(
+    prediction_proba_df,
+    column_config={
+        "Adelie": st.column_config.ProgressColumn(
+            "Adelie",
+            format="$%f",
+            min_value=0,
+            max_value=1000,
+        ),
+    },
+    hide_index=True,
+      )
+
+  
