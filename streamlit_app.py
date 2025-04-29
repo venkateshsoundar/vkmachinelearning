@@ -27,8 +27,6 @@ completion = client.chat.completions.create(
 )
 print(completion.choices[0].message.content)
 
-print(response.choices[0].message.content)
-
 st.title('🤖 This is the Machine Learning App')
 
 st.write('This is the app build a machine learning model')
